@@ -1,0 +1,12 @@
+{
+    "name": "clickad/namba-one-api-client",
+    "license": "MIT",
+    "require": {
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "erjanmx\\nambaone\\": "src/"
+        }
+    }
+}
