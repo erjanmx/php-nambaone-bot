@@ -1,5 +1,5 @@
 {
-    "name": "clickad/namba-one-api-client",
+    "name": "erjanmx/namba-one-api-client",
     "license": "MIT",
     "require": {
         "guzzlehttp/guzzle": "^6.2"

@@ -1,6 +1,6 @@
 <?php
 
-namespace erjanmx\pricebox;
+namespace erjanmx\nambaone;
 
 
 class Message
