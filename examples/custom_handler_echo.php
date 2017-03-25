@@ -5,10 +5,10 @@ use erjanmx\nambaone\Client;
 use erjanmx\nambaone\EventsHandler;
 use erjanmx\nambaone\ClientException;
 
-/*
- 
-*/
-class CustomEventsHandler
+/**
+ * @class
+ */
+class CustomEventsHandler extends EventsHandler
 {
     public $events = [
         'message/new' => 'messageNew',
