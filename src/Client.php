@@ -8,11 +8,22 @@ use InvalidArgumentException;
 
 class Client
 {
+    /**
+     * @var Api 
+     */
     public $api;
 
+    /**
+     * @var EventsHandler
+     */
     protected $events_handler;
 
-
+    /**
+     * Client constructor
+     * 
+     * @param $token - api token
+     * @param null $events_handler
+     */
     function __construct($token, $events_handler = null)
     {
         if (is_null($events_handler)) {
@@ -27,6 +38,13 @@ class Client
         $this->api = new Api($token);
     }
 
+    /**
+     * Missing methods goes through Message
+     * 
+     * @param $name
+     * @param $arguments
+     * @return Message
+     */
     public function __call($name, $arguments)
     {
         $message = new Message($this);
@@ -36,6 +54,13 @@ class Client
         return $message;
     }
 
+    /**
+     * Assign event handler
+     * 
+     * @param $event
+     * @param Closure $action
+     * @return $this
+     */
     public function command($event, Closure $action)
     {
         $this->events_handler->assign($event, $action);
@@ -43,6 +68,9 @@ class Client
         return $this;
     }
 
+    /**
+     * Handle incoming hooks from api 
+     */
     public function handleEvents()
     {
         $post = json_decode(file_get_contents('php://input'), true);
