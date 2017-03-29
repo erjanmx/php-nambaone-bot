@@ -8,13 +8,28 @@ use InvalidArgumentException;
 
 class Api
 {
+    /**
+     * Api endpoint
+     * 
+     * @var string
+     */
     protected $api_url = 'https://api.namba1.co';
 
+    /**
+     * @var Api token
+     */
     protected $token;
 
+    /**
+     * @var Guzzle http client
+     */
     protected $guzzle;
 
-    
+    /**
+     * Api constructor.
+     * 
+     * @param $token
+     */
     function __construct($token)
     {
         $this->token = $token;
@@ -22,6 +37,11 @@ class Api
         $this->guzzle = new Guzzle(['base_uri' => $this->api_url]);
     }
 
+    /**
+     * Prepare Auth-token
+     * 
+     * @return array
+     */
     protected function getHeaders()
     {
         return [
@@ -29,6 +49,14 @@ class Api
         ];
     }
 
+    /**
+     * Chat creation api call
+     * 
+     * @param $user_id
+     * @param string $name
+     * @param string $image
+     * @return mixed
+     */
     public function createChat($user_id, $name = '', $image = '')
     {
         $headers = $this->getHeaders();
@@ -44,6 +72,12 @@ class Api
         return json_decode($this->guzzle->post('/chats/create', $options)->getBody());
     }
 
+    /**
+     * Message sending api call
+     * 
+     * @param Message $message
+     * @return mixed
+     */
     public function sendMessage(Message $message)
     {
         $headers = $this->getHeaders();

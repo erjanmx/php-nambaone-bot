@@ -2,7 +2,6 @@
 
 namespace erjanmx\nambaone;
 
-
 class Message
 {
     const CONTENT_TYPE_AUDIO_MP4 = 'audio/mp4';
@@ -16,13 +15,25 @@ class Message
      */
     protected $client;
 
+    /**
+     * @var string Message type
+     */
     protected $type;
 
+    /**
+     * @var string Message content
+     */
     protected $content;
 
+    /**
+     * @var integer 
+     */
     protected $chat_id;
 
-
+    /**
+     * Message constructor.
+     * @param Client $client
+     */
     function __construct(Client $client)
     {
         $this->client = $client;
@@ -30,6 +41,10 @@ class Message
         $this->setType(self::CONTENT_TYPE_TEXT_PLAIN);
     }
 
+    /**
+     * @param $chat_id
+     * @return $this
+     */
     public function to($chat_id)
     {
         $this->setChatId($chat_id);
@@ -37,6 +52,10 @@ class Message
         return $this;
     }
 
+    /**
+     * @param $chat_id
+     * @return $this
+     */
     public function setChatId($chat_id)
     {
         $this->chat_id = $chat_id;
@@ -44,11 +63,18 @@ class Message
         return $this;
     }
 
+    /**
+     * @return int
+     */
     public function getChatId()
     {
         return $this->chat_id;
     }
 
+    /**
+     * @param $type
+     * @return $this
+     */
     public function setType($type)
     {
         $this->type = $type;
@@ -56,11 +82,18 @@ class Message
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getType()
     {
         return $this->type;
     }
 
+    /**
+     * @param $content
+     * @return $this
+     */
     public function setContent($content)
     {
         $this->content = $content;
@@ -68,11 +101,18 @@ class Message
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getContent()
     {
         return $this->content;
     }
 
+    /**
+     * @param null $content
+     * @return mixed
+     */
     public function send($content = null)
     {
         if (! is_null($content))
