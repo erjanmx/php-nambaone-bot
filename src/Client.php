@@ -77,4 +77,12 @@ class Client
 
         $this->events_handler->run($post['event'], $post['data']);
     }
+
+    /**
+     * @return EventsHandler
+     */
+    public function getEventsHandler()
+    {
+        return $this->events_handler;
+    }
 }
