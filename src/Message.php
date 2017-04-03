@@ -8,6 +8,7 @@ class Message
     const CONTENT_TYPE_TEXT_PLAIN = 'text/plain';
     const CONTENT_TYPE_MEDIA_IMAGE = 'media/image';
     const CONTENT_TYPE_CONTACT_JSON = 'contact/json';
+    const CONTENT_TYPE_STICKER_JSON = 'sticker/json';
     const CONTENT_TYPE_LOCATION_JSON = 'location/json';
 
     /**
