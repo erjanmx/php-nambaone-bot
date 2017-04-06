@@ -4,6 +4,7 @@ namespace erjanmx\nambaone;
 
 use Closure;
 use GuzzleHttp\Client as Guzzle;
+use GuzzleHttp\Exception\BadResponseException;
 use InvalidArgumentException;
 
 class Api
@@ -14,6 +15,13 @@ class Api
      * @var string
      */
     protected $api_url = 'https://api.namba1.co';
+
+    /**
+     * File managing endpoint
+     *
+     * @var string
+     */
+    protected $api_url_files = 'https://files.namba1.co';
 
     /**
      * @var Api token
@@ -93,5 +101,54 @@ class Api
         , $options);
 
         return json_decode($request->getBody());
+    }
+
+    /**
+     * Gets content of uploaded file by its token
+     *
+     * @param Message $message
+     * @return string|json
+     */
+    public function getFile($token)
+    {
+        $response = $this->guzzle->get($this->api_url_files, [
+            'query' => compact('token'),
+        ])->getBody();
+        
+        json_decode($response);
+        
+        if (json_last_error() == JSON_ERROR_NONE) {
+            throw new ClientException('File not found');
+        }
+        
+        return $response;
+    }
+
+    /**
+     * Uploads file to api endpoint and returns its token
+     *
+     * @param $filename
+     * @return string|null
+     */
+    public function uploadFile($filename)
+    {
+        if (! file_exists($filename)) {
+            throw new \BadMethodCallException('File not exists');
+        }
+        
+        $response = json_decode($this->guzzle->post($this->api_url_files, [
+             'multipart' => [
+                 [
+                    'name' => 'file',
+                    'contents' => fopen($filename, 'r')
+                 ]
+             ]
+        ])->getBody());
+
+        if ((isset($response->success)) && ($response->success)) {
+            return $response->file;
+        } else {
+            throw new ClientException('File is not uploaded');
+        }
     }
 }
