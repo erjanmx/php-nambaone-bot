@@ -8,7 +8,7 @@ $API_KEY = '';
 try {
     $client = new Client($API_KEY);
 
-    $client->command('on/follow', function ($user) use ($client) {
+    $client->command('user/follow', function ($user) use ($client) {
         $chat = $client->api->createChat($user['id']);
 
         $client->to($chat->data->id)->send('Welcome');
