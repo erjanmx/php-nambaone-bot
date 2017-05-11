@@ -39,7 +39,7 @@ class Client
     }
 
     /**
-     * Missing methods goes through Message
+     * Missing methods go through Message
      * 
      * @param $name
      * @param $arguments
