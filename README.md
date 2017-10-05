@@ -1,6 +1,6 @@
-# nambaone-api-client
+# php-nambaone-bot
 
-[![Latest Stable Version](https://poser.pugx.org/erjanmx/namba-one-api-client/v/stable)](https://packagist.org/packages/erjanmx/namba-one-api-client) [![Build Status](https://travis-ci.org/erjanmx/nambaone-api-client.svg?branch=master)](https://travis-ci.org/erjanmx/nambaone-api-client) [![Code Quality](https://img.shields.io/scrutinizer/g/erjanmx/nambaone-api-client/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/erjanmx/nambaone-api-client/?b=master) [![Total Downloads](https://poser.pugx.org/erjanmx/namba-one-api-client/downloads)](https://packagist.org/packages/erjanmx/namba-one-api-client)
+[![Latest Stable Version](https://poser.pugx.org/erjanmx/namba-one-api-client/v/stable)](https://packagist.org/packages/erjanmx/namba-one-api-client) [![Build Status](https://travis-ci.org/erjanmx/php-nambaone-bot.svg?branch=master)](https://travis-ci.org/erjanmx/php-nambaone-bot) [![Code Quality](https://img.shields.io/scrutinizer/g/erjanmx/php-nambaone-bot/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/erjanmx/php-nambaone-bot/?b=master) [![Total Downloads](https://poser.pugx.org/erjanmx/php-nambaone-bot/downloads)](https://packagist.org/packages/erjanmx/php-nambaone-bot)
 
 Bot API клиент для мобильного портала [namba1.co](https://namba1.co)
 
@@ -10,7 +10,7 @@ Bot API клиент для мобильного портала [namba1.co](http
 
 Возможно установка через [Composer](https://getcomposer.org/).
 Отредактируйте свой `composer.json` и добавьте
-`erjanmx/namba-one-api-client`.
+`erjanmx/php-nambaone-bot`.
 
 ```js
 {
@@ -18,7 +18,7 @@ Bot API клиент для мобильного портала [namba1.co](http
     "type": "project",
     "require": {
         "php": ">=5.5.0",
-        "erjanmx/namba-one-api-client": "*"
+        "erjanmx/php-nambaone-bot": "*"
     }
 }
 ```
@@ -27,12 +27,12 @@ Bot API клиент для мобильного портала [namba1.co](http
 
 выполнить следующую команду в терминале:
 
-```composer require erjanmx/namba-one-api-client```
+```composer require erjanmx/php-nambaone-bott```
 
 **или из исходного кода**
 
 ```
-$ git clone https://github.com/erjanmx/namba-one-api-client
+$ git clone https://github.com/erjanmx/php-nambaone-bot
 $ cd namba-one-api-client
 $ composer update
 ```
